@@ -165,7 +165,25 @@
     <h1>Frog Encyclopedia</h1>
     <p>Everything you need to know about frogs!</p>
 </header>
+    <p class="counter">Page Visits: <span id="visit-count">0</span></p>
 
+    <script>
+        // Get the stored count from localStorage
+        let visitCount = localStorage.getItem("page_visit");
+
+        // If not found, initialize it
+        if (visitCount === null) {
+            visitCount = 1;
+        } else {
+            visitCount = parseInt(visitCount) + 1;
+        }
+
+        // Update the count in localStorage
+        localStorage.setItem("page_visit", visitCount);
+
+        // Display the count
+        document.getElementById("visit-count").textContent = visitCount;
+    </script>
 <nav>
     <a href="#intro">Introduction</a>
     <a href="#species">Frog Species</a>
